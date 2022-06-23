@@ -11,4 +11,4 @@ JZZ.synth.Fluid({ path: process.argv[2], sf: process.argv[3] })
     console.log('Cannot open MIDI-Out!');
     console.log(this._err());
   })
-  .noteOn(0, 'C5', 127).wait(500).noteOff(0, 'C5').close();
+  .noteOn(0, 'C5', 127).wait(1000).noteOff(0, 'C5').close();

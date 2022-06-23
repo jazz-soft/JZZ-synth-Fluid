@@ -20,19 +20,29 @@
 
   var _version = '0.0.0';
 
+  function _esc(s) { return s.replace(/\\/g, "\\\\").replace(/\$/g, "\\$").replace(/'/g, "\\'").replace(/"/g, "\\\""); }
   function Synth(port, args) {
-    console.log(args);
     var self = this;
     self.fluid = require('child_process').spawn(args.path);
     self.fluid.on('error', function(err) { port._crash('Cannot spawn fluidsynth: ' + err.message); });
     self.fluid.on('spawn', function() {
-      if (args.sf) self.fluid.stdin.write('load ' + args.sf + '\n');
+      if (args.sf) self.loadSF(args.sf);
       port._resume();
     });
     self.quit = function() { self.fluid.stdin.write('quit\n'); self.fluid.stdin.end(); };
+    self.loadSF = function(sf) { self.fluid.stdin.write('load ' + _esc(sf) + '\n'); };
 
     self.play = function(msg) {
-console.log('Playing: ' + msg);
+      if (msg.length) {
+        var code = msg[0] >> 4;
+        var chan = msg[0] & 15;
+        var cmd;
+        if (code == 8 && msg.length >= 2) cmd = ['noteoff', chan, msg[1]].join(' ');
+        if (code == 9 && msg.length >= 3) cmd = ['noteon', chan, msg[1], msg[2]].join(' ');
+        if (code == 11 && msg.length >= 3) cmd = ['cc', chan, msg[1], msg[2]].join(' ');
+        if (code == 12 && msg.length >= 2) cmd = ['prog', chan, msg[1]].join(' ');
+      }
+      if (cmd) self.fluid.stdin.write(cmd + '\n');
     };
   }
 
@@ -64,6 +74,7 @@ console.log('Playing: ' + msg);
       port._info = _engine._info(name);
       port._receive = function(msg) { synth.play(msg); };
       port._close = function() { synth.quit(); };
+      port.loadSF = function(sf) { synth.loadSF(sf); return this; }
     };
     return _engine;
   }
