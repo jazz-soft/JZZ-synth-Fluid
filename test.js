@@ -1,4 +1,4 @@
-const JZZ = require('jzz');
+var JZZ = require('jzz');
 require('.')(JZZ);
 
 if (process.argv.length != 4) {

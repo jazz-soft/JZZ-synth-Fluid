@@ -1,10 +1,11 @@
 {
   "name": "jzz-synth-fluid",
-  "version": "0.0.0",
-  "description": "coming soon...",
+  "version": "0.0.1",
+  "description": "A JZZ wrapper for FluidSynth",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint index.js test.js"
   },
   "keywords": [
     "midi",
@@ -15,6 +16,9 @@
   "dependencies": {
     "jzz": "^1.5.1"
   },
+  "devDependencies": {
+    "eslint": "^8.18.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jazz-soft/JZZ-synth-Fluid.git"
@@ -22,6 +26,6 @@
   "bugs": {
     "url": "https://github.com/jazz-soft/JZZ-synth-Fluid/issues"
   },
-  "homepage": "https://github.com/jazz-soft/JZZ-synth-Fluid#readme",
+  "homepage": "https://github.com/jazz-soft/JZZ-synth-Fluid",
   "license": "MIT"
 }
