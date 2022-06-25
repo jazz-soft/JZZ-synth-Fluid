@@ -20,7 +20,7 @@
 
   var _version = '0.0.0';
 
-  function _esc(s) { return s.replace(/\\/g, "\\\\").replace(/\$/g, "\\$").replace(/'/g, "\\'").replace(/"/g, "\\\""); }
+  function _esc(s) { return s.replace(/\\/g, "\\\\").replace(/\$/g, "\\$").replace(/'/g, "\\'").replace(/"/g, "\\\"").replace(/ /g, "\\ "); }
   function Synth(port, args) {
     var self = this;
     self.fluid = require('child_process').spawn(args.path);
@@ -41,6 +41,7 @@
         if (code == 9 && msg.length >= 3) cmd = ['noteon', chan, msg[1], msg[2]].join(' ');
         if (code == 11 && msg.length >= 3) cmd = ['cc', chan, msg[1], msg[2]].join(' ');
         if (code == 12 && msg.length >= 2) cmd = ['prog', chan, msg[1]].join(' ');
+        if (code == 14 && msg.length >= 3) cmd = ['pitch_bend', chan, msg[2] * 128 + msg[1]].join(' ');
       }
       if (cmd) self.fluid.stdin.write(cmd + '\n');
     };
@@ -74,7 +75,9 @@
       port._info = _engine._info(name);
       port._receive = function(msg) { synth.play(msg); };
       port._close = function() { synth.quit(); };
-      port.loadSF = function(sf) { synth.loadSF(sf); return this; }
+      port.loadSF = function(sf) { return this.and(function() { synth.loadSF(sf); }); };
+      port.stdin = synth.fluid.stdin;
+      port.stdout = synth.fluid.stdout;
     };
     return _engine;
   }
