@@ -1,11 +1,12 @@
 {
   "name": "jzz-synth-fluid",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A JZZ wrapper for FluidSynth",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint index.js test.js"
+    "test": "nyc mocha test/mocha.js",
+    "lint": "eslint index.js test.js test",
+    "coverage": "nyc report --reporter=lcov"
   },
   "keywords": [
     "midi",
@@ -17,7 +18,9 @@
     "jzz": "^1.5.1"
   },
   "devDependencies": {
-    "eslint": "^8.18.0"
+    "eslint": "^8.18.0",
+    "mocha": "^10.0.0",
+    "nyc": "^15.1.0"
   },
   "repository": {
     "type": "git",

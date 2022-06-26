@@ -18,12 +18,12 @@
   /* istanbul ignore next */
   if (JZZ.synth.Fluid) return;
 
-  var _version = '0.0.0';
+  var _version = '0.0.3';
 
   function _esc(s) { return s.replace(/\\/g, "\\\\").replace(/\$/g, "\\$").replace(/'/g, "\\'").replace(/"/g, "\\\"").replace(/ /g, "\\ "); }
   function Synth(port, args) {
     var self = this;
-    self.fluid = require('child_process').spawn(args.path);
+    self.fluid = require('child_process').spawn(args.path, args.args);
     self.fluid.on('error', function(err) { port._crash('Cannot spawn fluidsynth: ' + err.message); });
     self.fluid.on('spawn', function() {
       if (args.sf) self.loadSF(args.sf);
@@ -92,7 +92,7 @@
       if (typeof a[0] == 'string') name = a[0];
       else par = a[0];
     }
-    var args = { path: 'fluidsynth', sf: undefined };
+    var args = { path: 'fluidsynth', sf: undefined, args: [] };
     if (typeof par == 'object') {
       for (var k in args) if (par[k]) args[k] = par[k];
     }

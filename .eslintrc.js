@@ -11,5 +11,19 @@ module.exports = {
   "globals": {
     "JZZ": "readonly",
     "define": "readonly"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["test/*"],
+      "globals": {
+        "after": "readonly",
+        "before": "readonly",
+        "describe": "readonly",
+        "it": "readonly"
+      },
+      "rules": {
+        "no-console" : "off"
+      }
+    }
+  ]
 };
