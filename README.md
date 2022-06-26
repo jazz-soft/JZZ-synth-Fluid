@@ -2,6 +2,8 @@
 
 [![npm](https://img.shields.io/npm/v/jzz-synth-fluid.svg)](https://www.npmjs.com/package/jzz-synth-fluid)
 [![npm](https://img.shields.io/npm/dt/jzz-synth-fluid.svg)](https://www.npmjs.com/package/jzz-synth-fluid)
+[![build](https://github.com/jazz-soft/JZZ-synth-Fluid/actions/workflows/build.yml/badge.svg)](https://github.com/jazz-soft/JZZ-synth-Fluid/actions)
+[![Coverage Status](https://coveralls.io/repos/github/jazz-soft/JZZ-synth-Fluid/badge.svg?branch=main)](https://coveralls.io/github/jazz-soft/JZZ-synth-Fluid?branch=main)
 
 A [JZZ](https://github.com/jazz-soft/JZZ) wrapper for [FluidSynth](https://github.com/FluidSynth/fluidsynth)
 
