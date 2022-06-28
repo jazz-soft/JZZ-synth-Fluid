@@ -59,7 +59,7 @@ var synth = JZZ().openMidiOut(name)
 ```
 `name`: a unique name for the synth; default: `'JZZ.synth.Fluid'`.  
 `params`: an object with the following keys:  
-- `path`: path to the FluidSynth executable; default: `fluidsynth`;  
+- `path`: path to the FluidSynth executable; default: `'fluidsynth'`;  
 - `sf`: path to the soundfont file; optional - can be loaded later;  
 - `args`: an array of additional arguments for the fluidsynth command line; default: `[]`.
 
