@@ -76,7 +76,7 @@ synth.loadSF(path);
 
 ##### STDIN/STDOUT
 
-`port.stdin`, `port.stdout` (for those who wants direct access to the fluidsynth via shell commands).
+`port.stdin`, `port.stdout` (for those who want direct access to the fluidsynth via shell commands).
 
 ## More information
 
