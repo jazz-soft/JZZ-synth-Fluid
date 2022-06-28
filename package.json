@@ -1,6 +1,6 @@
 {
   "name": "jzz-synth-fluid",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A JZZ wrapper for FluidSynth",
   "main": "index.js",
   "scripts": {

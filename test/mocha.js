@@ -34,6 +34,8 @@ after(function() {
 describe('Fluid Synth', function() {
   it('register', function() {
     JZZ.synth.Fluid.register();
+    JZZ.synth.Fluid.register('dummy');
+    JZZ.synth.Fluid.register('dummy', {});
   });
   it('version', function() {
     assert.equal(JZZ.synth.Fluid.version(), version);

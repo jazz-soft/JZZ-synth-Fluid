@@ -45,6 +45,39 @@ JZZ().openMidiOut('Fluid Synth')
    .close();
 ```
 
+## API
+
+##### Create/register
+
+```js
+var synth = JZZ.synth.Fluid(params);
+// or
+JZZ.synth.Fluid.register(params);
+// or
+JZZ.synth.Fluid.register(name, params);
+var synth = JZZ().openMidiOut(name)
+```
+`name`: a unique name for the synth; default: `'JZZ.synth.Fluid'`.  
+`params`: an object with the following keys:  
+- `path`: path to the FluidSynth executable; default: `fluidsynth`;  
+- `sf`: path to the soundfont file; optional - can be loaded later;  
+- `args`: an array of additional arguments for the fluidsynth command line; default: `[]`.
+
+##### MIDI port calls
+
+See https://jazz-soft.net/doc/JZZ/midiout.html for the complete list.
+
+##### Load soundfont
+
+```js
+synth.loadSF(path);
+```
+`path`: path to the soundfont file.
+
+##### STDIN/STDOUT
+
+`port.stdin`, `port.stdout` (for those who wants direct access to the fluidsynth via shell commands).
+
 ## More information
 
 Please visit [**https://jazz-soft.net**](https://jazz-soft.net) for more information.  

@@ -18,7 +18,7 @@
   /* istanbul ignore next */
   if (JZZ.synth.Fluid) return;
 
-  var _version = '0.0.3';
+  var _version = '0.0.4';
 
   function _esc(s) { return s.replace(/\\/g, "\\\\").replace(/\$/g, "\\$").replace(/'/g, "\\'").replace(/"/g, "\\\"").replace(/ /g, "\\ "); }
   function Synth(port, args) {
