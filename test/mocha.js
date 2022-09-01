@@ -1,4 +1,4 @@
-const assert = require('assert');
+var assert = require('assert');
 var readline = require('readline');
 var JZZ = require('jzz');
 require('..')(JZZ);
