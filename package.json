@@ -1,6 +1,6 @@
 {
   "name": "jzz-synth-fluid",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A JZZ wrapper for FluidSynth",
   "main": "index.js",
   "scripts": {
@@ -15,11 +15,11 @@
   ],
   "author": "jazz-soft (https://jazz-soft.net/)",
   "dependencies": {
-    "jzz": "^1.5.2"
+    "jzz": "^1.5.5"
   },
   "devDependencies": {
-    "eslint": "^8.23.0",
-    "mocha": "^10.0.0",
+    "eslint": "^8.28.0",
+    "mocha": "^10.1.0",
     "nyc": "^15.1.0"
   },
   "repository": {
