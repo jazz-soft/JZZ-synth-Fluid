@@ -1,6 +1,7 @@
 (function(global, factory) {
   /* istanbul ignore next */
   if (typeof exports === 'object' && typeof module !== 'undefined') {
+    factory.Fluid = factory;
     module.exports = factory;
   }
   else if (typeof define === 'function' && define.amd) {
@@ -18,7 +19,7 @@
   /* istanbul ignore next */
   if (JZZ.synth.Fluid) return;
 
-  var _version = '1.0.3';
+  var _version = '1.0.4';
 
   function _esc(s) { return s.replace(/\\/g, "\\\\").replace(/\$/g, "\\$").replace(/'/g, "\\'").replace(/"/g, "\\\"").replace(/ /g, "\\ "); }
   function Synth(port, args) {
