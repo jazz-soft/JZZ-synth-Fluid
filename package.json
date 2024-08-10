@@ -18,8 +18,8 @@
     "jzz": "^1.8.5"
   },
   "devDependencies": {
-    "eslint": "^9.8.0",
-    "mocha": "^10.7.0",
+    "eslint": "^9.9.0",
+    "mocha": "^10.7.3",
     "nyc": "^17.0.0"
   },
   "repository": {
