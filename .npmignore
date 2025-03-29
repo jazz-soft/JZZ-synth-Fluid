@@ -4,4 +4,3 @@ coverage
 Gruntfile.js
 test*
 *.html
-!test
